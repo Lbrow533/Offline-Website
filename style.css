@@ -1,0 +1,237 @@
+/* ======================================
+   LUIQtech – Preview Page (Enhanced)
+   ====================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body {
+  background: linear-gradient(135deg, #e3e3e3, #f7f7f7);
+  color: #111;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.dark {
+  background: radial-gradient(circle at 30% 30%, #0a0a0a, #1c1c1c 80%);
+  color: #fff;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark .glass {
+  background: rgba(25, 25, 25, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Nav Links ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+  background: currentColor;
+}
+
+/* ===== Toggle Switch ===== */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.switch {
+  width: 45px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.4s;
+}
+
+/* Neon-Glow im Dark Mode */
+body.dark .switch.active {
+  background: rgb(51, 255, 1);
+  box-shadow: 0 0 15px 5px rgba(60, 255, 0, 0.596);
+}
+
+body.dark .switch.active::after {
+  background: #ffffff;
+}
+
+.switch.active::after {
+  left: 25px;
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding-top: 8rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 0.6rem;
+}
+
+/* ===== Preview Grid ===== */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-width: 900px;
+  width: 90%;
+}
+
+.preview-card {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem 1.2rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+body.dark .preview-card {
+  background: rgba(25, 25, 25, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Hover – stärkerer Schatten-Kontrast */
+.preview-card:hover {
+  transform: translateY(-6px);
+}
+
+body:not(.dark) .preview-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .preview-card:hover {
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* ===== CTA ===== */
+.cta-btn {
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  transition: 0.4s;
+}
+
+body.dark .cta-btn {
+  background: rgba(255, 255, 255, 0.8);
+  color: #111;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .cta-btn:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ===== Animationen ===== */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+.delay { animation-delay: 0.5s; }
+.delay2 { animation-delay: 1s; }
+.delay3 { animation-delay: 1.5s; }
+.delay4 { animation-delay: 2s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* ===== © 2025 Luis Brochowski – All rights reserved. ===== */
